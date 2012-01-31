@@ -1,0 +1,35 @@
+## NSTreeController memory leaks data source objects
+
+The purpose of this example is to show that NSTreeController (in specific use cases) will hold on to data source objects that are not referenced anymore outside of the controller. The essentials of such are use case are:
+
+1. An object A is currently "selected" by the NSTreeController
+
+2. The application code replaces object A with some object B and does not hold on to object A any longer (releasing it)
+
+Then object A will still not be deallocated because NSTreeController seems to not to release it.
+
+### Executing Use Case in the Test App
+
+1. Run the app with the "Allocations" instrument
+
+2. Select the "Statistics" view; sort by category column
+
+3. Uncheck graph for all allocations
+
+4. Scroll window to category "JJNode"; click the checkmark to graph allocations for this category
+
+5. Expand all nodes in the application window; note that a node named "I am number ..." will be replaced by some other every two seconds
+
+6. Note in the instruments statistics view that the total number of live nodes stays the same
+
+7. Now select the "I am number ..." node
+
+8. You will find in instruments that the total number of live JJNodes has increased by one. This is wrong.
+
+### Workaround
+
+You can work around this problem by programmatically deselecting a node before it is being replaced in the NSTreeViewController's data source, e.g.:
+
+    [treeController setSelectionIndexPath:nil];
+
+This bug was submitted to Apple through radar #.....
