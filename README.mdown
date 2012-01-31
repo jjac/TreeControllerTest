@@ -1,4 +1,4 @@
-## NSTreeController memory leaks data source objects
+## NSTreeController Memory Leaks Data Source Objects
 
 The purpose of this example is to show that NSTreeController (in specific use cases) will hold on to data source objects that are not referenced anymore outside of the controller. The essentials of such use case are:
 
@@ -32,4 +32,4 @@ You can work around this problem by programmatically deselecting a node before i
 
     [treeController setSelectionIndexPath:nil];
 
-This bug was submitted to Apple through radar #.....
+This bug was submitted to Apple through radar # 10782119
