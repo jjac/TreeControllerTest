@@ -15,7 +15,7 @@
 
 - (BOOL) isLeaf
 {
-    return (self.subNodes == nil);
+    return (self.subNodes == nil || [self.subNodes count] == 0);
 }
 
 - (void) dealloc
