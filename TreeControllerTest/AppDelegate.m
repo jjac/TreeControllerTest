@@ -33,12 +33,11 @@
     subSubNode1 = [[[JJNode alloc] init] autorelease];
     subSubNode1.value = @"Deep, deep down!";
     
-    // This is the node we will subsequently replace every two seconds
-    
     subNode1 = [[[JJNode alloc] init] autorelease];
     subNode1.value = @"I am first sub-level";
     subNode1.subNodes = [NSArray arrayWithObject:subSubNode1];
     
+    // This is the node we will subsequently replace every two seconds
     subNode2 = [[[JJNode alloc] init] autorelease];
     subNode2.value = @"I am also first sub-level";
     
