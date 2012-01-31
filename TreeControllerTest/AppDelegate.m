@@ -19,6 +19,8 @@
 
 - (void)dealloc
 {
+    [_rootNodes release];
+    [_treeController release];
     [super dealloc];
 }
 
