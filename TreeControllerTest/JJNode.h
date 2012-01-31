@@ -11,7 +11,7 @@
 @interface JJNode : NSObject
 
 @property(nonatomic, copy) NSString *value;
-@property(nonatomic, retain) NSMutableArray *subNodes;
+@property(nonatomic, retain) NSArray *subNodes;
 
 - (BOOL) isLeaf;
 
