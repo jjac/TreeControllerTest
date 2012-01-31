@@ -10,7 +10,7 @@ Then object A will still not be deallocated because NSTreeController seems to no
 
 ### Executing Use Case in the Test App
 
-1. Run the app with the "Allocations" instrument
+1. Run the app in Instruments with the "Allocations" instrument
 
 2. Select the "Statistics" view; sort by category column
 
@@ -24,7 +24,7 @@ Then object A will still not be deallocated because NSTreeController seems to no
 
 7. Now select the "I am number ..." node
 
-8. You will find in instruments that the total number of live JJNodes has increased by one. This is wrong.
+8. You will find in instruments that as soon as the "I am number ..." node changes to a new number, the total number of live JJNodes has increased by one. This is wrong.
 
 ### Workaround
 
