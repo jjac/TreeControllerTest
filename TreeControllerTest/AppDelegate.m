@@ -16,9 +16,12 @@
 @synthesize window = _window;
 @synthesize treeController = _treeController;
 @synthesize rootNodes = _rootNodes;
+@synthesize stressTestTimer = _stressTestTimer;
 
 - (void)dealloc
 {
+    [_stressTestTimer invalidate];
+    [_stressTestTimer release];
     [_rootNodes release];
     [_treeController release];
     [super dealloc];
@@ -53,33 +56,12 @@
     // Try to provoke the error
     
 #if STRESS_TEST
-	[self performSelector:@selector(stressTest) withObject:nil afterDelay:5.0];
+    self.stressTestTimer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(replaceNode:) userInfo:nil repeats:YES];
 #endif
 }
 
-- (void) stressTest
-{
-	[NSThread detachNewThreadSelector:@selector(_stressTest) toTarget:self withObject:nil];
-}
 
-
-- (void) _stressTest
-{
-	[self performSelector:@selector(startReplacingNode) withObject:nil afterDelay:2.0];
-	
-	[[NSRunLoop currentRunLoop] run];
-}
-
-
-- (void) startReplacingNode
-{
-    [self performSelectorOnMainThread:@selector(replaceNode) withObject:nil waitUntilDone:NO];
-     
-	[self performSelector:@selector(startReplacingNode) withObject:nil afterDelay:2.0];
-}
-
-
-- (void) replaceNode
+- (void)replaceNode:(NSTimer *)timer
 {
     static NSUInteger counter = 1;
     

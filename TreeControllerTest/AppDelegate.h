@@ -14,4 +14,6 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, retain) IBOutlet NSTreeController *treeController;
 @property (nonatomic, retain) NSArray *rootNodes;
+@property (nonatomic, retain) NSTimer *stressTestTimer;
+
 @end
