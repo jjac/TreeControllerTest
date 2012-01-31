@@ -1,6 +1,6 @@
 ## NSTreeController memory leaks data source objects
 
-The purpose of this example is to show that NSTreeController (in specific use cases) will hold on to data source objects that are not referenced anymore outside of the controller. The essentials of such are use case are:
+The purpose of this example is to show that NSTreeController (in specific use cases) will hold on to data source objects that are not referenced anymore outside of the controller. The essentials of such use case are:
 
 1. An object A is currently "selected" by the NSTreeController
 
