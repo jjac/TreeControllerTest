@@ -1,4 +1,5 @@
 ## NSTreeController Memory Leaks Data Source Objects
+(Tested on OS X 10.7.2)
 
 The purpose of this example is to show that NSTreeController (in specific use cases) will hold on to data source objects that are not referenced anymore outside of the controller. The essentials of such use case are:
 
