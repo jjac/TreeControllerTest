@@ -19,7 +19,7 @@ Then object A will still not be deallocated because NSTreeController seems to no
 
 4. Scroll window to category "JJNode"; click the checkmark to graph allocations for this category
 
-5. Expand all nodes in the application window; note that a node named "I am number ..." will be replaced by some other every two seconds
+5. Expand all nodes in the test application's window; note that a node named "I am number ..." will be replaced by some other every two seconds
 
 6. Note in the instruments statistics view that the total number of live nodes stays the same
 
